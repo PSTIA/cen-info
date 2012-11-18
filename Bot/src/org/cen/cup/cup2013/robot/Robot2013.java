@@ -12,4 +12,11 @@ public class Robot2013 extends AbstractRobot {
 	public String getName() {
 		return "Robot 2013";
 	}
+	
+	
+	
+	public static void fonctionRenald(){
+		System.out.println("problème de merge!");
+	}
+	
 }
