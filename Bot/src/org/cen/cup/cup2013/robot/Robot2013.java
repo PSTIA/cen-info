@@ -10,16 +10,13 @@ public class Robot2013 extends AbstractRobot {
 
 	@Override
 	public String getName() {
-		return getRobotString();
-	}
-	private String getRobotString(){
 		return "Robot 2013";
 	}
 	
 	
-	
-	public static void fonctionRenald(){
+	public static int fonctionRenald(){
 		System.out.println("problème de merge!");
+		return 2013;
 	}
 	
 }
