@@ -14,9 +14,6 @@ public class Robot2013 extends AbstractRobot {
 	}
 	
 	
-	public static int fonctionRenald(){
-		System.out.println("problème de merge!");
-		return 2013;
-	}
+
 	
 }
