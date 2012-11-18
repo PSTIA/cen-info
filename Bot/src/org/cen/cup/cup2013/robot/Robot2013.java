@@ -10,6 +10,9 @@ public class Robot2013 extends AbstractRobot {
 
 	@Override
 	public String getName() {
+		return getRobotString();
+	}
+	private String getRobotString(){
 		return "Robot 2013";
 	}
 	
