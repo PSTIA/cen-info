@@ -18,8 +18,10 @@ public class Robot2013 extends AbstractRobot {
 	
 	
 	
-	public static void fonctionRenald(){
+	public static String fonctionRenald(){
 		System.out.println("problème de merge!");
+		
+		return "a";
 	}
 	
 }
