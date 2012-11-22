@@ -184,7 +184,7 @@ public class GameboardConfigurationHandler2011 {
 		case 0:
 			return MatchSide.RED;
 		case 1:
-			return MatchSide.VIOLET;
+			return MatchSide.BLUE;
 		default:
 			return null;
 		}

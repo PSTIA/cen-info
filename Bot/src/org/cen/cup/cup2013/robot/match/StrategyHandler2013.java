@@ -1,4 +1,4 @@
-package org.cen.cup.cup2012.robot.match;
+package org.cen.cup.cup2013.robot.match;
 
 import java.awt.geom.Point2D;
 import java.io.InputStream;
@@ -7,10 +7,15 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.cen.cup.cup2012.actions.GameActionMap2012;
-import org.cen.cup.cup2012.actions.GameActionService2012;
-import org.cen.cup.cup2012.device.arm2012.ArmHandler2012;
-import org.cen.cup.cup2012.navigation.NavigationHandler2012;
+import org.cen.cup.cup2013.actions.GameActionMap2013;
+import org.cen.cup.cup2013.actions.GameActionService2013;
+//TODO remove arm
+//import org.cen.cup.cup2013.device.arm2013.ArmHandler2013;
+import org.cen.cup.cup2013.navigation.NavigationHandler2013;
+import org.cen.cup.cup2013.robot.match.ConfigurationHandler2013;
+import org.cen.cup.cup2013.robot.match.GameStrategyFactory2013;
+import org.cen.cup.cup2013.robot.match.MatchData2013;
+import org.cen.cup.cup2013.robot.match.StrategyHandler2013Context;
 import org.cen.logging.LoggingUtils;
 import org.cen.navigation.AbstractDeadZoneHandler;
 import org.cen.navigation.INavigationMap;
@@ -57,7 +62,7 @@ import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements ResourceLoaderAware {
+public class StrategyHandler2013 extends AbstractMatchStrategyHandler implements ResourceLoaderAware {
 
 	private static final double MINIMUM_ROTATION_ANGLE = Math.toRadians(5.0);
 
@@ -79,15 +84,15 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 
 	private CollisionHandler collisionHandler;
 
-	private StrategyHandler2012Context fsm;
+	private StrategyHandler2013Context fsm;
 
-	private ConfigurationHandler2012 configurationHandler;
+	private ConfigurationHandler2013 configurationHandler;
 
 	private DefaultNextGameStrategyItemComputer nextGameStrategyItemComputer;
 
 	private TimeHandler timeHandler;
 
-	private NavigationHandler2012 navigationHandler;
+	private NavigationHandler2013 navigationHandler;
 
 	private ResourceLoader resourceLoader;
 
@@ -101,11 +106,12 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 
 	private List<RobotDeviceRequest> moveToAnalyzeRequests;
 
-	private ArmHandler2012 arm2012Handler;
+	//TODO remove arm
+	//private ArmHandler2013 arm2013Handler;
 
-	private GameActionService2012 gameActionService;
+	private GameActionService2013 gameActionService;
 
-	private GameActionMap2012 gameActionMap;
+	private GameActionMap2013 gameActionMap;
 
 	private List<Location> currentTrajectory;
 
@@ -114,7 +120,7 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 	private Iterator<ITargetActionItem> currentActions;
 
 	private IGameStrategy buildStrategy() {
-		GameStrategyFactory2012 factory = new GameStrategyFactory2012(servicesProvider, matchSide);
+		GameStrategyFactory2013 factory = new GameStrategyFactory2013(servicesProvider, matchSide);
 		IGameStrategy strategy = factory.getStrategy("Test");
 		return strategy;
 	}
@@ -176,14 +182,14 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 			LOGGER.warning("unable to load properties: " + e.getMessage());
 		}
 
-		configurationHandler = new ConfigurationHandler2012(servicesProvider);
-		// deadZoneHandler = new DeadZoneHandler2012(servicesProvider);
+		configurationHandler = new ConfigurationHandler2013(servicesProvider);
+		// deadZoneHandler = new DeadZoneHandler2013(servicesProvider);
 		if (BEACON) {
 			collisionHandler = new CollisionHandler(servicesProvider, deadZoneHandler);
 		}
-		navigationHandler = new NavigationHandler2012(servicesProvider);
-		gameActionMap = new GameActionMap2012(servicesProvider);
-		gameActionService = new GameActionService2012(servicesProvider);
+		navigationHandler = new NavigationHandler2013(servicesProvider);
+		gameActionMap = new GameActionMap2013(servicesProvider);
+		gameActionService = new GameActionService2013(servicesProvider);
 
 		IRobotDevicesHandler handler = servicesProvider.getService(IRobotDevicesHandler.class);
 
@@ -192,7 +198,8 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 		handler.sendRequest(new ConfigurationReadRequest());
 
 		// writeLCD("PC Connected.");
-		arm2012Handler = new ArmHandler2012(servicesProvider);
+		//TODO remove arm
+		//arm2013Handler = new ArmHandler2013(servicesProvider);
 
 	}
 
@@ -409,14 +416,14 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 			s += "RED";
 			break;
 		case BLUE:
-			s += "VIOLET";
+			s += "BLUE";
 			break;
 		}
 		// writeLCD(s);
 	}
 
 	private void setMatchSide() {
-		MatchData2012 data = (MatchData2012) RobotUtils.getRobotAttribute(MatchData.class, servicesProvider);
+		MatchData2013 data = (MatchData2013) RobotUtils.getRobotAttribute(MatchData.class, servicesProvider);
 		matchSide = data.getSide();
 	}
 
@@ -432,7 +439,7 @@ public class StrategyHandler2012 extends AbstractMatchStrategyHandler implements
 	@Override
 	public void start() {
 		LOGGER.config("Starting match strategy");
-		fsm = new StrategyHandler2012Context(this);
+		fsm = new StrategyHandler2013Context(this);
 		LOGGER.config("Match strategy started");
 		fsm.Start();
 	}

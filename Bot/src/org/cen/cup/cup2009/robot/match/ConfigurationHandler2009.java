@@ -28,7 +28,7 @@ public class ConfigurationHandler2009 extends ConfigurationHandler {
 		LOGGER.fine("updating configuration");
 
 		MatchData2009 data = (MatchData2009) RobotUtils.getRobotAttribute(MatchData.class, servicesProvider);
-		data.setSide(result.getSwitch(SWITCH_MATCHSIDE) ? MatchSide.RED : MatchSide.VIOLET);
+		data.setSide(result.getSwitch(SWITCH_MATCHSIDE) ? MatchSide.RED : MatchSide.BLUE);
 		LOGGER.fine("match side: " + data.getSide());
 
 		int homologation = (result.getValue() & MASK_HOMOLOGATIONCARD) >> 1;

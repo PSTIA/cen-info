@@ -163,7 +163,7 @@ public class StrategyHandler2010 extends AbstractMatchStrategyHandler implements
 		case RED:
 			s += "BLUE";
 			break;
-		case VIOLET:
+		case BLUE:
 			s += "YELLOW";
 			break;
 		}

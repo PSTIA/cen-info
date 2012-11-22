@@ -26,7 +26,7 @@ public class ConfigurationHandler2012 extends ConfigurationHandler {
 		LOGGER.fine("updating configuration");
 
 		MatchData2012 data = (MatchData2012) RobotUtils.getRobotAttribute(MatchData.class, servicesProvider);
-		data.setSide(result.getSwitch(SWITCH_MATCHSIDE) ? MatchSide.VIOLET : MatchSide.RED);
+		data.setSide(result.getSwitch(SWITCH_MATCHSIDE) ? MatchSide.BLUE : MatchSide.RED);
 		LOGGER.fine("match side: " + data.getSide());
 
 		data.setHomologation(result.getSwitch(SWITCH_HOMOLOGATION));

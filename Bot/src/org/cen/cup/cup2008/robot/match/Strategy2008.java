@@ -70,7 +70,7 @@ public class Strategy2008 implements IMatchStrategyHandler {
 		case RED:
 			position.set(150, 2850, Math.toRadians(315));
 			break;
-		case VIOLET:
+		case BLUE:
 			position.set(150, 150, -Math.toRadians(315));
 			break;
 		}
