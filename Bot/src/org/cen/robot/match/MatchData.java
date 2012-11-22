@@ -33,7 +33,7 @@ public class MatchData extends AdvancedRobotAttribute {
 	 */
 	public MatchData() {
 		super();
-		setSide(MatchSide.VIOLET);
+		setSide(MatchSide.BLUE);
 	}
 
 	/**
