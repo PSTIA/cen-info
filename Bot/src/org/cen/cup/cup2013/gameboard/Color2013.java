@@ -6,6 +6,9 @@ public class Color2013 {
 
 	// Yellow
 	public static final Color RAL_1023 = new Color(252, 189, 31);
+	
+	// Yellow-Green
+	public static final Color RAL_6018 = new Color(79, 168, 51);
 
 	// Pink
 	public static final Color RAL_3015 = new Color(232, 156, 181);
