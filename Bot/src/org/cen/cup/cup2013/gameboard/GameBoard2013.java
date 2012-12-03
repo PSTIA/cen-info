@@ -76,17 +76,13 @@ public class GameBoard2013 extends AbstractGameBoard {
 
 		elements.add(new FollowLine2012());
 
-		// Test Candles
+		//Candles
 		addCandles();
+		
+		//Plate
+		addPlates();
 
-		// Test Cherry
-		elements.add(new Cherry("cherry", 1350, 1000));
-		// Test Red Rotten Cherry
-		elements.add(new RottenCherry("rotten cherry", 1380, 1000,
-				Color2013.RAL_3001));
-		// Test Blue Rotten Cherry
-		elements.add(new RottenCherry("rotten cherry", 1400, 1000,
-				Color2013.RAL_5017));
+		
 
 		// Test Red Gift
 		elements.add(new Gift("gift", 1000, 900, Color2013.RAL_3001));
@@ -94,10 +90,7 @@ public class GameBoard2013 extends AbstractGameBoard {
 		elements.add(new Gift("gift", 1000, 900, Color2013.RAL_5017));
 
 		// Test Glass
-		elements.add(new Glass("gift", 1300, 900));
-
-		// Test Plate
-		elements.add(new Plate("gift", 700, 1000));
+		addGlass();
 	}
 
 	private void addOpponentLocation(Point2D coordinates) {
@@ -174,4 +167,80 @@ public class GameBoard2013 extends AbstractGameBoard {
 		}
 
 	}
+	
+	protected void addPlates() {
+		
+		double PlatePositions[][] = {	{250,200},
+										{600,200},
+										{1000,200},
+										{1400,200},
+										{1750,200},
+										
+										{250,BOARD_HEIGHT-200},
+										{600,BOARD_HEIGHT-200},
+										{1000,BOARD_HEIGHT-200},
+										{1400,BOARD_HEIGHT-200},
+										{1750,BOARD_HEIGHT-200},
+									};
+		//Position of the cherry related to the center of the plate
+		double CherryPosition[][] = {	{-45,45},
+										{45,45},
+										{-45,-45},
+										{45,-45},
+										{45,0},
+										{-45,0},
+										{0,-21},
+										{0,21},
+			};
+		
+		//Creation of the plates and cherrys
+		for (int i = 0; i < 10; i++) {
+			
+			//Plate adding
+			elements.add(new Plate("plate"+i, PlatePositions[i][0], PlatePositions[i][1]));
+			
+			//Cherry adding
+			long RottenCherryPlace= (long) Math.round((Math.random()*7));
+			for (int j = 0; j < 8; j++) {
+				if(RottenCherryPlace==j)
+				{
+					if(i<=4)
+					{//On blue plate (5 firsts), rotten cherry are blue
+						elements.add(new RottenCherry("cherry"+i+j , PlatePositions[i][0]+CherryPosition[j][0], PlatePositions[i][1]+CherryPosition[j][1],Color2013.RAL_5017));
+					}
+					else
+					{//On red plate (5 lasts), rotten cherry are red
+						elements.add(new RottenCherry("cherry"+i+j , PlatePositions[i][0]+CherryPosition[j][0], PlatePositions[i][1]+CherryPosition[j][1],Color2013.RAL_3001));
+					}
+				}
+				else
+				{
+					elements.add(new Cherry("cherry"+i+j , PlatePositions[i][0]+CherryPosition[j][0], PlatePositions[i][1]+CherryPosition[j][1]));
+				}
+			}
+		}
+	}
+	
+	protected void addGlass() {
+		
+		//Positions of all the glass
+		double GlassPosition[][] = {	
+									{950,900},
+									{950,1200},
+									{1200,1050},
+									{1200,1350},
+									{1450,900},
+									{1450,1200},
+									};
+		
+		//Adding 6 glass
+		for (int i = 0; i < 6; i++) {
+			elements.add(new Glass("glass"+i, GlassPosition[i][0], GlassPosition[i][1]));
+		}
+		//And symetrics
+		for (int i = 0; i < 6; i++) {
+			elements.add(new Glass("glass"+i+6, GlassPosition[i][0], BOARD_HEIGHT-GlassPosition[i][1]));
+		}
+	}
+	
 }
