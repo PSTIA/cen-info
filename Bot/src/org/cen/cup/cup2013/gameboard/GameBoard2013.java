@@ -6,7 +6,6 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cen.cup.cup2012.gameboard.lines.FollowLine2012;
 import org.cen.cup.cup2013.gameboard.elements.BlueCandle;
 import org.cen.cup.cup2013.gameboard.elements.Cherry;
 import org.cen.cup.cup2013.gameboard.elements.Gift;
@@ -15,6 +14,7 @@ import org.cen.cup.cup2013.gameboard.elements.Plate;
 import org.cen.cup.cup2013.gameboard.elements.RedCandle;
 import org.cen.cup.cup2013.gameboard.elements.RottenCherry;
 import org.cen.cup.cup2013.gameboard.elements.WhiteCandle;
+import org.cen.cup.cup2013.gameboard.lines.FollowLine2013;
 import org.cen.robot.RobotUtils;
 import org.cen.robot.match.Opponent;
 import org.cen.ui.gameboard.AbstractGameBoard;
@@ -39,11 +39,14 @@ public class GameBoard2013 extends AbstractGameBoard {
 
 	public static final double BORDER_WIDTH = 22d;
 
+	public static final double[] GIFT_POSITIONS = {600,1200,1800,2400};
+	
 	private final List<IGameBoardElement> elements;
 
 	private final Rectangle2D gameplayBounds;
 
 	private final Rectangle2D visibleBounds;
+	
 
 	/** Color of board. */
 	private final Color COLOR_BOARD_2013 = Color2013.RAL_1023;
@@ -72,10 +75,18 @@ public class GameBoard2013 extends AbstractGameBoard {
 		// Right border
 		elements.add(new Border("border", BOARD_HEIGHT, BOARD_WIDTH,
 				BOARD_HEIGHT, -Math.PI / 2));
+		
+		
+		// Map
+		elements.add(new MapParty(BOARD_MIDDLE_WIDTH,BOARD_MIDDLE_HEIGHT));
 
-		elements.add(new FollowLine2012());
-
-		//Candles
+		// Cake
+		elements.add(new Cake(BOARD_MIDDLE_WIDTH,BOARD_MIDDLE_HEIGHT));
+		
+		// Lines
+		elements.add(new FollowLine2013(BOARD_MIDDLE_WIDTH,BOARD_MIDDLE_HEIGHT));
+		
+		//Candle
 		addCandles();
 		
 		//Plate
@@ -83,12 +94,13 @@ public class GameBoard2013 extends AbstractGameBoard {
 
 		
 
-		// Test Red Gift
-		elements.add(new Gift("gift", 1000, 900, Color2013.RAL_3001));
-		// Test Blue Gift
-		elements.add(new Gift("gift", 1000, 900, Color2013.RAL_5017));
-
-		// Test Glass
+		// Gift
+		for(int i=0;i<GIFT_POSITIONS.length;i++){
+			elements.add(new Gift("gift", 2000+Gift.GIFT_THICKNESS+4*BORDER_WIDTH, GIFT_POSITIONS[i]-Gift.GIFT_WIDTH/2, Color2013.RAL_3001));
+			elements.add(new Gift("gift", 2000+Gift.GIFT_THICKNESS +4*BORDER_WIDTH,  GIFT_POSITIONS[i]+Gift.GIFT_WIDTH/2, Color2013.RAL_5017));
+		}
+		
+		// Glass
 		addGlass();
 	}
 

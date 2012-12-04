@@ -29,7 +29,7 @@ public class Gift extends AbstractGameBoardElement {
 	public void paint(Graphics2D g) {
 		Graphics2D g2d = g;
 		g2d.setColor(color);
-		DrawHelper.fillCenteredRectangle(g2d, -GIFT_WIDTH / 2, -GIFT_THICKNESS/2, GIFT_WIDTH, GIFT_THICKNESS);
+		DrawHelper.fillCenteredRectangle(g2d, -GIFT_WIDTH / 2, -GIFT_THICKNESS/2, GIFT_THICKNESS,GIFT_WIDTH);
 	}
 
 }
