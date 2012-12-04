@@ -1,5 +1,6 @@
 package org.cen.cup.cup2013.gameboard.lines;
 
+import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
@@ -12,14 +13,17 @@ public class FollowLine2013 extends AbstractGameBoardElement {
 
 	public static final int LINE_WIDTH = 20;
 
-	public static final int LINE_START_AREA_SHIFT = 50;
-
-	public static final int LINE_VERTICAL_HEIGHT = 150;
+	public static final int FIRST_LINE_HEIGHT = -1400+1000;
 	
+	public static final int SECOND_LINE_HEIGHT = -1300+1000;
+	
+	public static final int THIRD_LINE_HEIGHT = -300+1000;
+	
+	public static final int CIRCLE_DIAMATER = 2*150;
 	
 
-	public FollowLine2013() {
-		super("followLine2012", new Point2D.Double(0d, 0d), 0.0d);
+	public FollowLine2013(double x, double y) {
+		super("followLine2013", new Point2D.Double(x, y), 0.0d);
 	}
 
 	@Override
@@ -28,17 +32,25 @@ public class FollowLine2013 extends AbstractGameBoardElement {
 		// Black
 		g2d.setColor(Color2012.RAL_9005);
 
-		int x = StartArea2012.START_AREA_WIDTH - LINE_START_AREA_SHIFT;
-
-		// Bottom lines
-		g2d.fillRect(x, StartArea2012.START_AREA_HEIGHT, LINE_WIDTH, LINE_VERTICAL_HEIGHT);
-		g2d.fillRect(x, StartArea2012.START_AREA_HEIGHT + LINE_VERTICAL_HEIGHT - LINE_WIDTH,
-				(int) GameBoard2012.BOARD_WIDTH - x, LINE_WIDTH);
-
-		// Top lines
-		g2d.fillRect(x, (int) (GameBoard2012.BOARD_HEIGHT - StartArea2012.START_AREA_HEIGHT - LINE_VERTICAL_HEIGHT),
-				LINE_WIDTH, LINE_VERTICAL_HEIGHT);
-		g2d.fillRect(x, (int) (GameBoard2012.BOARD_HEIGHT - StartArea2012.START_AREA_HEIGHT - LINE_VERTICAL_HEIGHT),
-				(int) GameBoard2012.BOARD_WIDTH - x, LINE_WIDTH);
+		g2d.setStroke(new BasicStroke(LINE_WIDTH));
+		
+		// First lines
+		g2d.drawLine(FIRST_LINE_HEIGHT, 1500, FIRST_LINE_HEIGHT, 1500-600+CIRCLE_DIAMATER/4);
+		g2d.drawLine(FIRST_LINE_HEIGHT, -1500, FIRST_LINE_HEIGHT, -1500+600-CIRCLE_DIAMATER/4);
+		
+		// Second line
+		g2d.drawLine(SECOND_LINE_HEIGHT, 2400-1500-CIRCLE_DIAMATER/4, SECOND_LINE_HEIGHT, -2400+1500+CIRCLE_DIAMATER/4);
+		
+		// Third line
+		g2d.drawLine(THIRD_LINE_HEIGHT, 2400-1500-CIRCLE_DIAMATER/4, THIRD_LINE_HEIGHT, -2400+1500+CIRCLE_DIAMATER/4);
+		
+		// Vertical lines
+		g2d.drawLine(-1400+1000+CIRCLE_DIAMATER/4, 2400-1500, 1000, 2400-1500);
+		g2d.drawLine(-1400+1000+CIRCLE_DIAMATER/4, -2400+1500, 1000, -2400+1500);		
+				
+		// Arcs
+		//g2d.drawArc(-1400+1000-CIRCLE_DIAMATER/2,-2400+1000-CIRCLE_DIAMATER/2,CIRCLE_DIAMATER,CIRCLE_DIAMATER,90,-90);
+		
+		// A FINIR
 	}
 }
