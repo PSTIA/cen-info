@@ -7,5 +7,5 @@ package org.cen.robot.match;
  */
 public enum MatchSide {
 
-	RED, VIOLET;
+	RED, BLUE;
 }

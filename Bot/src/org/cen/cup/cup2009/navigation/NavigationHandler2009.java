@@ -150,7 +150,7 @@ public class NavigationHandler2009 implements RobotDeviceListener {
 		case RED:
 			prefix = "green-";
 			break;
-		case VIOLET:
+		case BLUE:
 			prefix = "red-";
 			break;
 		}

@@ -996,7 +996,7 @@ public class StrategyHandler2011 extends AbstractMatchStrategyHandler implements
 		case RED:
 			s += "BLUE";
 			break;
-		case VIOLET:
+		case BLUE:
 			s += "RED";
 			break;
 		}

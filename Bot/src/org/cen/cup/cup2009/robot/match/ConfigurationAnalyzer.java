@@ -95,7 +95,7 @@ public class ConfigurationAnalyzer {
 				suffix = "G" + trajectory;
 				break;
 			}
-			case VIOLET: {
+			case BLUE: {
 				suffix = "R" + trajectory;
 				break;
 			}
@@ -142,7 +142,7 @@ public class ConfigurationAnalyzer {
 			handler.setPosition(x, y, position.getAlpha());
 			handler.setColorAngle(COLOR_ANGLE_GREEN);
 			break;
-		case VIOLET:
+		case BLUE:
 			handler.setMirror(true);
 			handler.setPosition(x, y, position.getAlpha());
 			handler.setColorAngle(COLOR_ANGLE_RED);
