@@ -1,6 +1,10 @@
 package org.cen.cup.cup2013.robot.match;
 
 
+import static org.cen.cup.cup2012.robot.match.ElementsName2012.BOTTLE_1;
+import static org.cen.cup.cup2012.robot.match.ElementsName2012.BULLION_1;
+import static org.cen.cup.cup2012.robot.match.ElementsName2012.BULLION_RIGHT;
+import static org.cen.cup.cup2012.robot.match.ElementsName2012.DROP_1;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.DROP_1;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.HOME;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.OUT_DROP_1;
@@ -9,6 +13,7 @@ import java.awt.Point;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.cen.cup.cup2012.device.arm2012.ArmType2012;
 //TODO remove arm
 //import org.cen.cup.cup2013.device.arm2013.ArmDownRequest2013;
 //import org.cen.cup.cup2013.device.arm2013.ArmType2013;
@@ -50,24 +55,6 @@ public class TargetsFactory2013 {
 		buildTargets();
 	}
 
-	//TODO remove arm
-	/*private void addCloseArm(ITargetAction action, ArmType2013 type) {
-		//RobotDeviceRequest request = new ArmUpRequest2013(type);
-		SimpleTargetActionItem item = new SimpleTargetActionItem(request);
-		ITargetActionItemList items = action.getItems();
-		items.addTargetActionItem(item);
-	}*/
-
-	//TODO remove arm
-	/*
-	private void addOpenArm(ITargetAction action, ArmType2013 type) {
-		RobotDeviceRequest request = new ArmDownRequest2013(type);
-		SimpleTargetActionItem item = new SimpleTargetActionItem(request);
-		ITargetActionItemList items = action.getItems();
-		items.addTargetActionItem(item);
-	}
-	*/
-
 	private ITarget addSimpleTarget(String name, double gain) {
 		Map<String, Location> locations = map.getLocationsMap();
 		Location l = locations.get(name);
@@ -107,28 +94,11 @@ public class TargetsFactory2013 {
 		items.addTargetActionItem(item);
 	}
 
-	//TODO remove arm
-	/*private void addSymmetricCloseArm(ITargetAction[] a, ArmType2013 type) {
-		// violet
-		addCloseArm(a[1], type);
-		// red
-		type = getOpposite(type);
-		addCloseArm(a[0], type);
-	}
-
-	private void addSymmetricOpenArm(ITargetAction[] a, ArmType2013 type) {
-		// violet
-		addOpenArm(a[1], type);
-		// red
-		type = getOpposite(type);
-		addOpenArm(a[0], type);
-	}*/
-
 	private ITarget[] addSymmetricSimpleTarget(String name, double gain) {
 		// red
 		ITarget t1 = addSimpleTarget(NavigationMap2013.getRedName(name), gain);
 		// violet
-		ITarget t2 = addSimpleTarget(NavigationMap2013.getVioletName(name), gain);
+		ITarget t2 = addSimpleTarget(NavigationMap2013.getBlueName(name), gain);
 		return new ITarget[] { t1, t2 };
 	}
 
@@ -144,7 +114,7 @@ public class TargetsFactory2013 {
 		// red
 		addSplineRequest(actions[0], NavigationMap2013.getRedName(location), d1, d2, NavigationMap2013.getSymmetricAngle(a));
 		// violet
-		addSplineRequest(actions[1], NavigationMap2013.getVioletName(location), d1, d2, a);
+		addSplineRequest(actions[1], NavigationMap2013.getBlueName(location), d1, d2, a);
 	}
 
 	private ITargetAction[] addSymmetricTargetAction(ITarget[] targets, String start, String end, int time) {
@@ -152,8 +122,8 @@ public class TargetsFactory2013 {
 		ITargetAction a1 = addTargetAction(targets[0], NavigationMap2013.getRedName(start), NavigationMap2013.getRedName(end),
 				time);
 		// violet
-		ITargetAction a2 = addTargetAction(targets[1], NavigationMap2013.getVioletName(start),
-				NavigationMap2013.getVioletName(end), time);
+		ITargetAction a2 = addTargetAction(targets[1], NavigationMap2013.getBlueName(start),
+				NavigationMap2013.getBlueName(end), time);
 		return new ITargetAction[] { a1, a2 };
 	}
 
@@ -177,9 +147,32 @@ public class TargetsFactory2013 {
 		// ATTENTION :
 		// la symétrie se base toujours sur les coordonnées du côté BLEU
 
+		//Reminder of the prototype of the functions to generate actions:
+		//addSymmetricSimpleTarget(name, gain);
+		//addSymmetricTargetAction(target, start position, end position, time to achieve);
+		
+		// All the GIFTS:
 		targets = new TargetList();
-		//ITarget[] t = addSymmetricSimpleTarget(BULLION_1, 3);
-		//ITargetAction[] a = addSymmetricTargetAction(t, BULLION_1, BULLION_1, 0);		
+		ITarget[] t = addSymmetricSimpleTarget(GIFT_1, 4);
+		ITargetAction[] a = addSymmetricTargetAction(t, GIFT_1, GIFT_1, 5);
+		
+		t = addSymmetricSimpleTarget(GIFT_2, 4);
+		a = addSymmetricTargetAction(t, GIFT_2, GIFT_2, 5);
+		
+		t = addSymmetricSimpleTarget(GIFT_3, 4);
+		a = addSymmetricTargetAction(t, GIFT_3, GIFT_3, 5);
+		
+		t = addSymmetricSimpleTarget(GIFT_4, 4);
+		a = addSymmetricTargetAction(t, GIFT_4, GIFT_4, 5);
+		
+
+		t = addSymmetricSimpleTarget(CHERRY_1, 16);
+		a = addSymmetricTargetAction(t, CHERRY_1, CHERRY_LUNCH_POSITION, 10);
+		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
+		addSymmetricSplineRequest(a, CHERRY_LUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
+		
+		
 	}
 
 	private void addSymmetricRotation(ITargetAction[] a, int angle) {
@@ -197,14 +190,7 @@ public class TargetsFactory2013 {
 		items.addTargetActionItem(item);
 	}
 
-	//TODO remove arm
-	/*private ArmType2013 getOpposite(ArmType2013 type) {
-		if (type == ArmType2013.LEFT) {
-			return ArmType2013.RIGHT;
-		} else {
-			return ArmType2013.LEFT;
-		}
-	}*/
+
 
 	public TargetList getTargets() {
 		return targets;

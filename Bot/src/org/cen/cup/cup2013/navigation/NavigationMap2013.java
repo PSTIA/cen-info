@@ -134,7 +134,7 @@ public class NavigationMap2013 extends AbstractNavigationMap implements Resource
 		return -angle;
 	}
 
-	public static String getVioletName(String name) {
+	public static String getBlueName(String name) {
 		return name + SUFFIX_VIOLET;
 	}
 
