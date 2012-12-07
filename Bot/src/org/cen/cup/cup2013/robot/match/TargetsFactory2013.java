@@ -165,11 +165,36 @@ public class TargetsFactory2013 {
 		t = addSymmetricSimpleTarget(GIFT_4, 4);
 		a = addSymmetricTargetAction(t, GIFT_4, GIFT_4, 5);
 		
+		//All the cherry actions
 
 		t = addSymmetricSimpleTarget(CHERRY_1, 16);
-		a = addSymmetricTargetAction(t, CHERRY_1, CHERRY_LUNCH_POSITION, 10);
+		a = addSymmetricTargetAction(t, CHERRY_1, CHERRY_LAUNCH_POSITION, 10);
 		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
-		addSymmetricSplineRequest(a, CHERRY_LUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(CHERRY_2, 16);
+		a = addSymmetricTargetAction(t, CHERRY_2, CHERRY_LAUNCH_POSITION, 10);
+		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
+		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(CHERRY_3, 16);
+		a = addSymmetricTargetAction(t, CHERRY_3, CHERRY_LAUNCH_POSITION, 10);
+		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
+		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(CHERRY_4, 16);
+		a = addSymmetricTargetAction(t, CHERRY_4, CHERRY_LAUNCH_POSITION, 10);
+		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
+		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
+		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(CHERRY_5, 16);
+		a = addSymmetricTargetAction(t, CHERRY_5, CHERRY_LAUNCH_POSITION, 10);
+		//addSymmetricRecoverCherry(a, ArmType2012.RIGHT);
+		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
 		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
 		
 		
