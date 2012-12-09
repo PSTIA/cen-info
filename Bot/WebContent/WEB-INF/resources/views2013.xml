@@ -80,4 +80,7 @@
 	<bean id="VideoRecorderView" class="org.cen.ui.web.VideoRecorderView">
 		<property name="servicesProvider" ref="servicesProvider" />
 	</bean>
+	<bean id="BeaconView" class="org.cen.ui.web.BeaconView">
+		<property name="servicesProvider" ref="servicesProvider" />
+	</bean>
 </beans>

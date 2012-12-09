@@ -72,6 +72,9 @@
 					rendered="#{not empty VideoRecorderView}">
 					<ui:include src="videoRecorder.jsp" />
 				</rich:tab>
+				<rich:tab label="Beacon">
+					<ui:include src="beacon.jsp" />
+				</rich:tab>
 			</rich:tabPanel>
 		</f:view>
 	</ui:define>
