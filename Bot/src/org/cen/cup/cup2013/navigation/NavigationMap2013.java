@@ -1,6 +1,18 @@
 package org.cen.cup.cup2013.navigation;
 
 
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_1;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_2;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_3;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_4;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_5;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_1;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_2;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_3;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_4;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.START;
+
+
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -15,6 +27,9 @@ import org.cen.cup.cup2013.gameboard.elements.Gift;
 import org.cen.cup.cup2013.gameboard.lines.FollowLine2013;
 import org.cen.logging.LoggingUtils;
 import org.cen.navigation.AbstractNavigationMap;
+import org.cen.robot.match.strategy.ITarget;
+import org.cen.robot.match.strategy.ITargetAction;
+import org.cen.robot.match.strategy.TargetList;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -124,6 +139,19 @@ public class NavigationMap2013 extends AbstractNavigationMap implements Resource
 	}
 
 	private void buildGrid() {
+		
+		addSymmetricSplinePath(START, CHERRY_1, 0xF0, 0xC0, 250, 200);
+		addSymmetricSplinePath(START, CHERRY_2, 0xF0, 0xC0, 1500-250, 200);
+		addSymmetricSplinePath(START, CHERRY_3, 0xF0, 0xC0, 250, 2800);
+		addSymmetricSplinePath(START, CHERRY_4, 0xF0, 0xC0, 1500-250, 2800);
+		addSymmetricSplinePath(START, CHERRY_5, 0xF0, 0xC0, 1000, 2800);
+		
+		addSymmetricSplinePath(START, GIFT_1, 0xF0, 0xC0, 1500, (int)GIFT_POSITIONS[1]);
+		addSymmetricSplinePath(START, GIFT_2, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[2]);
+		addSymmetricSplinePath(START, GIFT_3, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[3]);
+		addSymmetricSplinePath(START, GIFT_4, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[4]);
+
+
 		
 	}
 

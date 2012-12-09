@@ -16,6 +16,29 @@ public class ElementsName2013 {
 
 	/** TODO. */
 	public static final String HOME = "Home";
+	
+	
+	// Gift
+	public static final String GIFT_1 = "Gift1";
+	
+	public static final String GIFT_2 = "Gift2";
+	
+	public static final String GIFT_3 = "Gift3";
+	
+	public static final String GIFT_4 = "Gift4";
+	
+	
+	// Cherry
+	public static final String CHERRY_1 = "Cherry1";
+	
+	public static final String CHERRY_2 = "Cherry2";
+
+	public static final String CHERRY_3 = "Cherry3";
+
+	public static final String CHERRY_4 = "Cherry4";
+
+	public static final String CHERRY_5 = "Cherry5";
+	
 
 
 }
