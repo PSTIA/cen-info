@@ -1,19 +1,16 @@
 package org.cen.cup.cup2013.robot.match;
 
 
-import static org.cen.cup.cup2012.robot.match.ElementsName2012.BOTTLE_1;
-import static org.cen.cup.cup2012.robot.match.ElementsName2012.BULLION_1;
-import static org.cen.cup.cup2012.robot.match.ElementsName2012.BULLION_RIGHT;
-import static org.cen.cup.cup2012.robot.match.ElementsName2012.DROP_1;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.DROP_1;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.HOME;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.OUT_DROP_1;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_1;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_2;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_3;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_4;
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.*;
 
 import java.awt.Point;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.cen.cup.cup2012.device.arm2012.ArmType2012;
 //TODO remove arm
 //import org.cen.cup.cup2013.device.arm2013.ArmDownRequest2013;
 //import org.cen.cup.cup2013.device.arm2013.ArmType2013;

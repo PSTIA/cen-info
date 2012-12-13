@@ -146,10 +146,10 @@ public class NavigationMap2013 extends AbstractNavigationMap implements Resource
 		addSymmetricSplinePath(START, CHERRY_4, 1000, 200, 1500-250, 2800);
 		addSymmetricSplinePath(START, CHERRY_5, 1000, 200, 1000, 2800);
 		
-		addSymmetricSplinePath(START, GIFT_1, 1000, 200, 1500, (int)GIFT_POSITIONS[1]);
-		addSymmetricSplinePath(START, GIFT_2, 1000, 200, 1500, (int) GIFT_POSITIONS[2]);
-		addSymmetricSplinePath(START, GIFT_3, 1000, 200, 1500, (int) GIFT_POSITIONS[3]);
-		addSymmetricSplinePath(START, GIFT_4, 1000, 200, 1500, (int) GIFT_POSITIONS[4]);
+		addSymmetricSplinePath(START, GIFT_1, 1000, 200, 1500, (int)GIFT_POSITIONS[0]);
+		addSymmetricSplinePath(START, GIFT_2, 1000, 200, 1500, (int) GIFT_POSITIONS[1]);
+		addSymmetricSplinePath(START, GIFT_3, 1000, 200, 1500, (int) GIFT_POSITIONS[2]);
+		addSymmetricSplinePath(START, GIFT_4, 1000, 200, 1500, (int) GIFT_POSITIONS[3]);
 
 		addSymmetricSplinePath(CHERRY_1, CHERRY_LAUNCH_POSITION, 250, 200, 300, 1500);
 		addSymmetricSplinePath(CHERRY_2, CHERRY_LAUNCH_POSITION, 1500-250, 200, 300, 1500);
