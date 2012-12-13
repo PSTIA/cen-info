@@ -11,7 +11,7 @@ import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_2;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_3;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_4;
 import static org.cen.cup.cup2013.robot.match.ElementsName2013.START;
-
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_LAUNCH_POSITION;
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -140,19 +140,23 @@ public class NavigationMap2013 extends AbstractNavigationMap implements Resource
 
 	private void buildGrid() {
 		
-		addSymmetricSplinePath(START, CHERRY_1, 0xF0, 0xC0, 250, 200);
-		addSymmetricSplinePath(START, CHERRY_2, 0xF0, 0xC0, 1500-250, 200);
-		addSymmetricSplinePath(START, CHERRY_3, 0xF0, 0xC0, 250, 2800);
-		addSymmetricSplinePath(START, CHERRY_4, 0xF0, 0xC0, 1500-250, 2800);
-		addSymmetricSplinePath(START, CHERRY_5, 0xF0, 0xC0, 1000, 2800);
+		addSymmetricSplinePath(START, CHERRY_1, 1000, 200, 250, 200);
+		addSymmetricSplinePath(START, CHERRY_2, 1000, 200, 1500-250, 200);
+		addSymmetricSplinePath(START, CHERRY_3, 1000, 200, 250, 2800);
+		addSymmetricSplinePath(START, CHERRY_4, 1000, 200, 1500-250, 2800);
+		addSymmetricSplinePath(START, CHERRY_5, 1000, 200, 1000, 2800);
 		
-		addSymmetricSplinePath(START, GIFT_1, 0xF0, 0xC0, 1500, (int)GIFT_POSITIONS[1]);
-		addSymmetricSplinePath(START, GIFT_2, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[2]);
-		addSymmetricSplinePath(START, GIFT_3, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[3]);
-		addSymmetricSplinePath(START, GIFT_4, 0xF0, 0xC0, 1500, (int) GIFT_POSITIONS[4]);
+		addSymmetricSplinePath(START, GIFT_1, 1000, 200, 1500, (int)GIFT_POSITIONS[1]);
+		addSymmetricSplinePath(START, GIFT_2, 1000, 200, 1500, (int) GIFT_POSITIONS[2]);
+		addSymmetricSplinePath(START, GIFT_3, 1000, 200, 1500, (int) GIFT_POSITIONS[3]);
+		addSymmetricSplinePath(START, GIFT_4, 1000, 200, 1500, (int) GIFT_POSITIONS[4]);
 
+		addSymmetricSplinePath(CHERRY_1, CHERRY_LAUNCH_POSITION, 250, 200, 300, 1500);
+		addSymmetricSplinePath(CHERRY_2, CHERRY_LAUNCH_POSITION, 1500-250, 200, 300, 1500);
+		addSymmetricSplinePath(CHERRY_3, CHERRY_LAUNCH_POSITION,250, 2800, 300, 1500);
+		addSymmetricSplinePath(CHERRY_4, CHERRY_LAUNCH_POSITION, 1500-250, 2800, 300, 1500);
+		addSymmetricSplinePath(CHERRY_5, CHERRY_LAUNCH_POSITION, 1000, 2800, 300, 1500);
 
-		
 	}
 
 	@Override
