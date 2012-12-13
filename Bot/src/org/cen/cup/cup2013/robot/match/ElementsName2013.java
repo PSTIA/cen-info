@@ -39,6 +39,8 @@ public class ElementsName2013 {
 
 	public static final String CHERRY_5 = "Cherry5";
 	
+	public static final String CHERRY_LAUNCH_POSITION  = "Cherry_Launch_Position";
+	
 
 
 }
