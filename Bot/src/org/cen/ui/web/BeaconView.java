@@ -11,11 +11,23 @@ import org.cen.robot.device.battery.BatteryReadResult;
 public class BeaconView implements IRobotService {
 
 	private IRobotServiceProvider servicesProvider;
+	
+	private int testInt;
 
+	public BeaconView(){
+		super();
+		settestInt(17);
+	}
 	@Override
 	public void setServicesProvider(IRobotServiceProvider provider) {
 		servicesProvider = provider;
 		
+	}
+	public void settestInt(int test){
+		testInt=test;
+	}
+	public int gettestInt(){
+		return testInt;
 	}
 	
 }
