@@ -7,14 +7,8 @@
 	xmlns:c="http://java.sun.com/jstl/core">
 
 	<rich:panel id="Beacon">
-		<h:outputText value="Test: injection de valeurs de BeaconView:#{BeaconView.testInt}"></h:outputText>
-		<h:inputText id="test" value="#{BeaconView.testInt}" >
-			<a4j:support event="onchange" reRender="Beacon" />
-		</h:inputText>
-		<h:commandButton action="#{BeaconView.settestInt}" value="Send Text" />
-		<h:form>
-			<h:commandButton action="refresh" value="Refresh" />
-		</h:form>
+		<h:outputText value="Test: injection de valeurs de BeaconView:#{BeaconView.testInt}"/>
+		Position du robot: X: <h:outputText value="#{BeaconView.computedXRobotPosition}"/> Y: <h:outputText value="#{BeaconView.computedYRobotPosition}"/>
 	</rich:panel>
 
 </ui:composition>
