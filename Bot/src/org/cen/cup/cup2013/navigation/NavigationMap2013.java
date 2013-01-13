@@ -1,22 +1,13 @@
 package org.cen.cup.cup2013.navigation;
 
 
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_1;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_2;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_3;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_4;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_5;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_1;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_2;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_3;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.GIFT_4;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.START;
-import static org.cen.cup.cup2013.robot.match.ElementsName2013.CHERRY_LAUNCH_POSITION;
 
+import static org.cen.cup.cup2013.robot.match.ElementsName2013.*;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import org.cen.cup.cup2012.robot.match.ElementsName2012;
 import org.cen.cup.cup2013.gameboard.Color2013;
 import org.cen.cup.cup2013.gameboard.GameBoard2013;
 
@@ -140,22 +131,72 @@ public class NavigationMap2013 extends AbstractNavigationMap implements Resource
 
 	private void buildGrid() {
 		
+		addSymmetricLocation(START,1000, 200);
+		addSymmetricLocation(CHERRY_1,250, 2800);
+		addSymmetricLocation(CHERRY_2,2000-250, 2800);
+		addSymmetricLocation(CHERRY_3,250, 2800);
+		addSymmetricLocation(CHERRY_4, 1400, 2800);
+		addSymmetricLocation(CHERRY_5,600, 2800);
+		addSymmetricLocation(GIFT_1,2000,  (int)GIFT_POSITIONS[0]);
+		addSymmetricLocation(GIFT_2,2000,  (int)GIFT_POSITIONS[1]);
+		addSymmetricLocation(GIFT_3,2000,  (int)GIFT_POSITIONS[2]);
+		addSymmetricLocation(GIFT_4,2000,  (int)GIFT_POSITIONS[3]);
+		addSymmetricLocation(GLASS_1, 950, 900);
+		addSymmetricLocation(GLASS_2,  950, 1200);
+		addSymmetricLocation(GLASS_3,1450, 900);
+		addSymmetricLocation(GLASS_4, 1450, 1200);
+		addSymmetricLocation(GLASS_5,  1200, 1050);
+		addSymmetricLocation(GLASS_6, 1200, 1350);
+		addSymmetricLocation(GLASS_7, 950,3000-900);
+		addSymmetricLocation(GLASS_8,  950, 3000-1200);
+		addSymmetricLocation(GLASS_9,1450, 3000-900);
+		addSymmetricLocation(GLASS_10, 1450, 3000-1200);
+		addSymmetricLocation(GLASS_11,  1200, 3000-1050);
+		addSymmetricLocation(GLASS_12, 1200, 3000-1350);
+		
+		addSymmetricLocation(GLASS_BUILD_AREA, 1000, 200);
+		
+		
 		addSymmetricSplinePath(START, CHERRY_1, 1000, 200, 250, 200);
 		addSymmetricSplinePath(START, CHERRY_2, 1000, 200, 1500-250, 200);
 		addSymmetricSplinePath(START, CHERRY_3, 1000, 200, 250, 2800);
 		addSymmetricSplinePath(START, CHERRY_4, 1000, 200, 1500-250, 2800);
 		addSymmetricSplinePath(START, CHERRY_5, 1000, 200, 1000, 2800);
-		
-		addSymmetricSplinePath(START, GIFT_1, 1000, 200, 1500, (int)GIFT_POSITIONS[0]);
-		addSymmetricSplinePath(START, GIFT_2, 1000, 200, 1500, (int) GIFT_POSITIONS[1]);
-		addSymmetricSplinePath(START, GIFT_3, 1000, 200, 1500, (int) GIFT_POSITIONS[2]);
-		addSymmetricSplinePath(START, GIFT_4, 1000, 200, 1500, (int) GIFT_POSITIONS[3]);
-
+		addSymmetricSplinePath(START, GIFT_1, 1000, 200, 2000, (int)GIFT_POSITIONS[0]);
+		addSymmetricSplinePath(START, GIFT_2, 1000, 200, 2000, (int) GIFT_POSITIONS[1]);
+		addSymmetricSplinePath(START, GIFT_3, 1000, 200, 2000, (int) GIFT_POSITIONS[2]);
+		addSymmetricSplinePath(START, GIFT_4, 1000, 200, 2000, (int) GIFT_POSITIONS[3]);
 		addSymmetricSplinePath(CHERRY_1, CHERRY_LAUNCH_POSITION, 250, 200, 300, 1500);
 		addSymmetricSplinePath(CHERRY_2, CHERRY_LAUNCH_POSITION, 1500-250, 200, 300, 1500);
 		addSymmetricSplinePath(CHERRY_3, CHERRY_LAUNCH_POSITION,250, 2800, 300, 1500);
 		addSymmetricSplinePath(CHERRY_4, CHERRY_LAUNCH_POSITION, 1500-250, 2800, 300, 1500);
 		addSymmetricSplinePath(CHERRY_5, CHERRY_LAUNCH_POSITION, 1000, 2800, 300, 1500);
+		
+		  // Glass
+		  addSymmetricSplinePath(START, GLASS_1, 1000, 200, 950, 900);
+		  addSymmetricSplinePath(START, GLASS_2, 1000, 200, 950, 1200);
+		  addSymmetricSplinePath(START, GLASS_3, 1000, 200, 1450, 900);
+		  addSymmetricSplinePath(START, GLASS_4, 1000, 200, 1450, 1200);
+		  addSymmetricSplinePath(START, GLASS_5, 1000, 200, 1200, 1050);
+		  addSymmetricSplinePath(START, GLASS_6, 1000, 200, 1200, 1350);
+		  addSymmetricSplinePath(START, GLASS_7, 1000, 200, 950,3000-900);
+		  addSymmetricSplinePath(START, GLASS_8, 1000, 200, 950, 3000-1200);
+		  addSymmetricSplinePath(START, GLASS_9, 1000, 200, 1450, 3000-900);
+		  addSymmetricSplinePath(START, GLASS_10, 1000, 200, 1450, 3000-1200);
+		  addSymmetricSplinePath(START, GLASS_11, 1000, 200, 1200, 3000-1050);
+		  addSymmetricSplinePath(START, GLASS_12, 1000, 200, 1200, 3000-1350);
+		  addSymmetricSplinePath(GLASS_1, GLASS_BUILD_AREA,  950, 900,1000, 200);
+		  addSymmetricSplinePath(GLASS_2, GLASS_BUILD_AREA,  950, 1200,1000, 200);
+		  addSymmetricSplinePath(GLASS_3, GLASS_BUILD_AREA,1450, 900, 1000, 200);
+		  addSymmetricSplinePath(GLASS_4, GLASS_BUILD_AREA, 1450, 1200,1000, 200);
+		  addSymmetricSplinePath(GLASS_5, GLASS_BUILD_AREA,  1200, 1050,1000, 200);
+		  addSymmetricSplinePath(GLASS_6, GLASS_BUILD_AREA,  1200, 1350,1000, 200);
+		  addSymmetricSplinePath(GLASS_7, GLASS_BUILD_AREA,  950,3000-900,1000, 200);
+		  addSymmetricSplinePath(GLASS_8, GLASS_BUILD_AREA,   950, 3000-1200,1000, 200);
+		  addSymmetricSplinePath(GLASS_9, GLASS_BUILD_AREA, 1450, 3000-900,1000, 200);
+		  addSymmetricSplinePath(GLASS_10, GLASS_BUILD_AREA,  1450, 3000-1200,1000, 200);
+		  addSymmetricSplinePath(GLASS_11, GLASS_BUILD_AREA, 1200, 3000-1050,1000, 200);
+		  addSymmetricSplinePath(GLASS_12, GLASS_BUILD_AREA, 1200, 3000-1350,1000, 200);
 
 	}
 
