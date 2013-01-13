@@ -7,7 +7,8 @@
 	xmlns:c="http://java.sun.com/jstl/core">
 
 	<rich:panel id="Beacon">
-		Test: empty tab
+		<h:outputText value="Test: injection de valeurs de BeaconView:#{BeaconView.testInt}"/>
+		Position du robot: X: <h:outputText value="#{BeaconView.computedXRobotPosition}"/> Y: <h:outputText value="#{BeaconView.computedYRobotPosition}"/>
 	</rich:panel>
 
 </ui:composition>
