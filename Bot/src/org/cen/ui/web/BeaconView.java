@@ -5,8 +5,8 @@ import org.cen.robot.IRobotServiceProvider;
 import org.cen.robot.device.IRobotDevicesHandler;
 import org.cen.robot.device.RobotDeviceListener;
 import org.cen.robot.device.RobotDeviceResult;
-import org.cen.robot.device.battery.BatteryDevice;
-import org.cen.robot.device.battery.BatteryReadResult;
+import org.cen.robot.device.beacon.BeaconDevice;
+import org.cen.robot.device.beacon.BeaconReadResult;
 import org.cen.robot.device.navigation.PositionData;
 
 public class BeaconView implements IRobotService {
@@ -26,6 +26,21 @@ public class BeaconView implements IRobotService {
 	@Override
 	public void setServicesProvider(IRobotServiceProvider provider) {
 		servicesProvider = provider;
+		IRobotDevicesHandler handler = servicesProvider.getService(IRobotDevicesHandler.class);
+		handler.addDeviceListener(new RobotDeviceListener() {
+			@Override
+			public String getDeviceName() {
+				return BeaconDevice.NAME;
+			}
+
+			@Override
+			public void handleResult(RobotDeviceResult result) {
+				if (result instanceof BeaconReadResult) {
+					computedXRobotPosition = ((BeaconReadResult) result).getComputedXRobotPosition();
+					computedYRobotPosition = ((BeaconReadResult) result).getComputedYRobotPosition();
+				}
+			}
+		});
 		
 	}
 	public void settestInt(int test){
