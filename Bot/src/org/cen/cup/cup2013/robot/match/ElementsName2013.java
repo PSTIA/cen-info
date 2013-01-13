@@ -41,6 +41,32 @@ public class ElementsName2013 {
 	
 	public static final String CHERRY_LAUNCH_POSITION  = "Cherry_Launch_Position";
 	
+	//Glasses
+	public static final String GLASS_1 = "Glass1";
+	
+	public static final String GLASS_2 = "Glass2";
+	
+	public static final String GLASS_3 = "Glass3";
+	
+	public static final String GLASS_4 = "Glass4";
+	
+	public static final String GLASS_5 = "Glass5";
+	
+	public static final String GLASS_6 = "Glass6";
+	
+	public static final String GLASS_7 = "Glass7";
+	
+	public static final String GLASS_8 = "Glass8";
+	
+	public static final String GLASS_9 = "Glass9";
+	
+	public static final String GLASS_10 = "Glass10";
+	
+	public static final String GLASS_11 = "Glass11";
+	
+	public static final String GLASS_12 = "Glass12";
+	
+	public static final String GLASS_BUILD_AREA = "GlassBuildArea";
 
 
 }

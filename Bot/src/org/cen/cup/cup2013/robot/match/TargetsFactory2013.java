@@ -194,6 +194,26 @@ public class TargetsFactory2013 {
 		addSymmetricSplineRequest(a, CHERRY_LAUNCH_POSITION, 0x64, 0x32, 0xFC7C);
 		//addSymmetricLunchCherry(a, ArmType2012.RIGHT);
 		
+		//action: "aller chercher 3 verres" et construire une tour
+		t = addSymmetricSimpleTarget(GLASS_11, 4);
+		a = addSymmetricTargetAction(t, GLASS_11, GLASS_11, 5);
+		addSymmetricSplineRequest(a, GLASS_11, 0x64, 0x32, 0xFC7C);
+		//addSymmetricTakeGlass(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(GLASS_12, 4);
+		a = addSymmetricTargetAction(t, GLASS_11, GLASS_12, 5);
+		addSymmetricSplineRequest(a, GLASS_12, 0x64, 0x32, 0xFC7C);
+		//addSymmetricTakeGlass(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(GLASS_10, 4);
+		a = addSymmetricTargetAction(t, GLASS_12, GLASS_10, 5);
+		addSymmetricSplineRequest(a, GLASS_10, 0x64, 0x32, 0xFC7C);
+		//addSymmetricTakeGlass(a, ArmType2012.RIGHT);
+		
+		t = addSymmetricSimpleTarget(GLASS_BUILD_AREA, 16);
+		a = addSymmetricTargetAction(t, GLASS_10, GLASS_BUILD_AREA, 5);
+		addSymmetricSplineRequest(a, GLASS_BUILD_AREA, 0x64, 0x32, 0xFC7C);
+		//addSymmetricReleaseTower(a, ArmType2012.RIGHT);
 		
 	}
 
