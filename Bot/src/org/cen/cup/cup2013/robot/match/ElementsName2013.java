@@ -41,33 +41,32 @@ public class ElementsName2013 {
 	
 	public static final String CHERRY_LAUNCH_POSITION  = "Cherry_Launch_Position";
 	
+	//Glasses
+	public static final String GLASS_1 = "Glass1";
 	
-	 // Glass
-	 public static final String GLASS_1 = "GLASS_1";
-	 
-	 public static final String GLASS_2 = "GLASS_2";
-	 
-	 public static final String GLASS_3 = "GLASS_3";
-	 
-	 public static final String GLASS_4 = "GLASS_4";
-	 
-	 public static final String GLASS_5 = "GLASS_5";
-	 
-	 public static final String GLASS_6 = "GLASS_6";
-	 
-	 public static final String GLASS_7 = "GLASS_7";
-
-	 public static final String GLASS_8 = "GLASS_8";
-	 
-	 public static final String GLASS_9 = "GLASS_9";
-	 
-	 public static final String GLASS_10 = "GLASS_10";
-	 
-	 public static final String GLASS_11 = "GLASS_11";
-	 
-	 public static final String GLASS_12 = "GLASS_12";
-
-	 public static final String GLASS_BUILD_AREA = "GLASS_BUILD_AREA";
+	public static final String GLASS_2 = "Glass2";
+	
+	public static final String GLASS_3 = "Glass3";
+	
+	public static final String GLASS_4 = "Glass4";
+	
+	public static final String GLASS_5 = "Glass5";
+	
+	public static final String GLASS_6 = "Glass6";
+	
+	public static final String GLASS_7 = "Glass7";
+	
+	public static final String GLASS_8 = "Glass8";
+	
+	public static final String GLASS_9 = "Glass9";
+	
+	public static final String GLASS_10 = "Glass10";
+	
+	public static final String GLASS_11 = "Glass11";
+	
+	public static final String GLASS_12 = "Glass12";
+	
+	public static final String GLASS_BUILD_AREA = "GlassBuildArea";
 
 
 }
