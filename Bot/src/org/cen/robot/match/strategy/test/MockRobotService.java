@@ -20,7 +20,7 @@ public class MockRobotService  implements ITrajectoryService  {
 		
 	}
 	public INavigationMap getNavigationMap(){
-		return null;
+		return new MockNavigationMap();
 		
 	}
 	@Override
