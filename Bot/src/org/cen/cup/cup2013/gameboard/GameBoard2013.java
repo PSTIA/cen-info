@@ -49,7 +49,7 @@ public class GameBoard2013 extends AbstractGameBoard {
 	
 
 	/** Color of board. */
-	private final Color COLOR_BOARD_2013 = Color2013.RAL_1023;
+	public static final Color COLOR_BOARD_2013 = Color2013.RAL_1023;
 
 	public GameBoard2013() {
 		super();
