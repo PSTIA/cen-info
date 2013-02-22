@@ -52,6 +52,7 @@ public class TargetsFactory2013 {
 		buildTargets();
 	}
 
+
 	private ITarget addSimpleTarget(String name, double gain) {
 		Map<String, Location> locations = map.getLocationsMap();
 		Location l = locations.get(name);
@@ -140,7 +141,7 @@ public class TargetsFactory2013 {
 		return action;
 	}
 
-	private void buildTargets() {
+	protected void buildTargets() {
 		// ATTENTION :
 		// la symétrie se base toujours sur les coordonnées du côté BLEU
 
